@@ -8,4 +8,5 @@ import lombok.Data;
 public class Continente {
     private int codigo;
     private String nombre;
+
 }

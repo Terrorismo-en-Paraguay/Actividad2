@@ -10,4 +10,13 @@ public class Pais {
     private int codigo;
     private String nombre;
     private String capital;
+
+    @Override
+    public String toString() {
+        return
+                "cod_continente=" + cod_continente +
+                ", codigo=" + codigo +
+                ", nombre='" + nombre + '\'' +
+                ", capital='" + capital + '\'';
+    }
 }
