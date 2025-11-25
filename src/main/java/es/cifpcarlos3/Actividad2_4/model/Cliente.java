@@ -9,4 +9,6 @@ public class Cliente {
     int id;
     String dni;
     String nombre;
+    int telefono;
+    String email;
 }

@@ -20,7 +20,12 @@ public class ClienteDAOImpl {
         List<Cliente> cuentas = new ArrayList<>();
         try(var conexion = dbc.getConnection(); Statement stmt = dbc.getConnection().createStatement(); ResultSet resultado = stmt.executeQuery(consulta)){
             while (resultado.next()) {
-
+                int id = resultado.getInt("id_cliente");
+                String dni = resultado.getString("dni");
+                String nombre = resultado.getString("nombre");
+                int telefono = resultado.getInt("telefono");
+                String email = resultado.getString("email");
+                cuentas.add(new Cliente(id, dni, nombre, telefono, email));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

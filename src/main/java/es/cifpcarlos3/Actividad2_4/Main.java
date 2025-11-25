@@ -25,6 +25,7 @@ public class Main {
             opcion = numero.nextInt();
             switch (opcion) {
                 case 1:
+
                     break;
                 case 2:
                     break;
