@@ -47,4 +47,12 @@ public class ClienteDAOImpl {
             throw new RuntimeException(e);
         }
     }
+
+    public void eliminarCliente(Cliente cliente){
+        try(var  conexion = dbc.getConnection(); PreparedStatement stmt = conexion.prepareStatement("Delete from t_cliente where id_cliente = ?")){
+
+        }catch (Exception e){
+            System.out.println("No se pudieron eliminar los datos");
+        }
+    }
 }

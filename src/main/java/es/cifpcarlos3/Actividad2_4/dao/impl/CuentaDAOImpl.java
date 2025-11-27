@@ -7,6 +7,7 @@ import org.mariadb.jdbc.Statement;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -89,6 +90,16 @@ public class CuentaDAOImpl {
                 System.out.println("Saldo actualizado");
                 conexion.commit();
                 System.out.println("Transaccion finalizada");
+            }catch (Exception e) {
+                System.err.println("Ocurrió un error durante la operación SQL. Intentando rollback.");
+                if (conexion != null) {
+                    try {
+                        conexion.rollback();
+                        System.err.println("Rollback exitoso. Ningún cambio ha sido guardado.");
+                    } catch (SQLException excep) {
+                        System.err.println("Error al intentar rollback: " + excep.getMessage());
+                    }
+                }
             }
         } catch (Exception e) {
 

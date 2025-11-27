@@ -74,7 +74,7 @@ public class CuentaDAOImpl {
         try (var conexion = dbc.getConnection();){
            conexion.setAutoCommit(false);
            System.out.println("Transaccion iniciada");
-           try( PreparedStatement stmt = conexion.prepareStatement("UPDATE t_cuenta SET saldo=? where numero_cuenta='?'");) {
+           try( PreparedStatement stmt = conexion.prepareStatement("UPDATE t_cuenta SET saldo=? where numero_cuenta=?");) {
                stmt.setFloat(1, cuenta.getSaldo());
                stmt.setString(2, cuenta.getNumeroCuenta());
                stmt.executeUpdate();
